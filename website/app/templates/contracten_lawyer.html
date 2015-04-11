@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+  {% if current_user.is_admin() %}
+  <select class="form-control">
+    {% for customer in customers %}
+    <option>{{ customer }}</option>
+    {% endfor %}
+  </select>
+  {% endif %}
+    <form action="{{ url_for('contracten_lawyer') }}" method="post" enctype="multipart/form-data">
+      <input type="file" multiple="" name="documents" class="span3" /><br />
+      <input type="submit" value="Upload"  class="span2">
+    </form>
+{% endblock %}

@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{% block content %}
+<script src="/static/ckeditor/ckeditor.js"></script>
+{% if customers %}
+
+De volgende klanten ontvangen bij wetswijzingen of publicatie van jurisprudentie relevant voor de contracten van de klant automatisch een e-mail.
+<br>
+  <div class="list-group">
+    {% for customer in customers %}
+      <li class="list-group-item"><a href="/remove_customer/{{customer}}"><span class="glyphicon glyphicon-remove"></span></a> {{ customer }}</li>
+     {% endfor %}
+  </div>
+{% endif %}
+
+{% if pot_customers %}
+De volgende klanten ontvangen bij wetswijzingen of publicatie van jurisprudentie relevant voor de contracten van de klant nog <b>niet</b> automatisch een e-mail.
+  <div class="list-group">
+    {% for customer in pot_customers %}
+      <li class="list-group-item"><a href="/add_customer/{{customer}}"><span class="glyphicon glyphicon-plus"></span></a> {{ customer }}</li>
+     {% endfor %}
+  </div>
+{% endif %}
+
+  <form method="post">
+
+    Form for no weird things
+     <textarea name="edit1" id="editor1" rows="10" cols="80">
+         {{ template1 }}
+     </textarea>
+    Form for weird things
+     <textarea name="edit2" id="editor2" rows="10" cols="80">
+         {{ template2 }}
+     </textarea>
+    Form for change in law
+     <textarea name="edit3" id="editor3" rows="10" cols="80">
+         {{ template3 }}
+     </textarea>
+
+     <input type="submit" value="Upload"  class="btn btn-primary">
+     <script>
+         // Replace the <textarea id="editor1"> with a CKEditor
+         // instance, using default configuration.
+         CKEDITOR.replace( 'edit1' );
+         CKEDITOR.replace( 'edit2' );
+         CKEDITOR.replace( 'edit3' );
+     </script>
+ </form>
+
+{% endblock %}
