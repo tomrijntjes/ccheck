@@ -8,18 +8,7 @@ uit: waarschuwingsemail naar mkb'ers met lekke contracten en een aanbieding voor
 class WetChecker(ContractUtility):
 	def __init__(self):
 		self.contracten = None
-		with open("valkuilen.txt") as valkuilen:
-			self.v = list(valkuilen)
 
-
-	def parseValkuil(self,valkuil):
-		#update file
-		with open("valkuilen.txt",'a') as valkuilen:
-			valkuilen.write(valkuil)
-		
-		self.v.append(valkuil)
-			
-	
 	def valkuilCheck(self):
 		#loop over contracten
 		for contract in contracten:
@@ -32,7 +21,7 @@ class Contract:
 	def __init__(self):
 		self.relatie = "Fantasie BV"
 		self.contract = "Overeenkomst Tijdelijke Arbeidsrelatie #102" 
-		self.afzender = "Rob Beks"
+		self.afzender = "Mike eks"
 
 class Valkuil:
 	def __init__(self):	
