@@ -1,9 +1,0 @@
-"""
-IN: stuk jurispudentie (features of raw?)
-INTERN: doorzoek alle contracten op matches en haal contactgevens op
-OUT: email naar relevante clienten met servicevoorstel
-"""
-
-class Notifier(kantoor, em):
-	def __init__():
-		
