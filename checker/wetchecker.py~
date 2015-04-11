@@ -1,0 +1,14 @@
+"""
+warme module
+in: nieuwe 'bekende valkuil' 
+proces: vergelijk met alle contracten in database
+uit: waarschuwingsemail naar mkb'ers met lekke contracten en een aanbieding voor maatwerk.
+"""
+
+class WetChecker(ContractUtility):
+	def __init__():
+		pass
+
+	def 
+
+

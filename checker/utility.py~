@@ -1,0 +1,31 @@
+"""
+basisklasse voor gedeelde functionaliteit: dbconnectie, uitgaande email, parser jurispudentie, parser contract
+"""
+
+class ContractUtility():
+	def __init__(self):
+		pass
+
+	def connect():
+		pass
+	
+	def sendMail(self,contract=dict(),valkuil=dict()):
+		relatie = "Fantasie BV"
+		artikel = "Artikel 100 arbeidsrecht"
+		contract.naam = "Overeenkomst Tijdelijke Arbeidsrelatie #102"
+		contract.specificatie = "artikel 7 moet aangescherpt worden om te voldoen aan nieuwe wetseisen."
+		contract.afzender = "Rob Beks"
+		if valkuil:
+			print("""Beste {0}, u heeft in het verleden een contract geupload bij onze contractencheck-service dat nu uw aandacht kan gebruiken. Vanwege veranderingen in {1} is er ruimte voor een update in contract {2}: {3} Als we daarbij van dienst kunnen zijn, hoor ik het graag. 
+
+Met vriendelijke groet,
+
+{4}""".format(relatie,artikel,contract.naam,contract.specificatie,contract.kantoor))
+
+			
+
+	def parseContract():
+		pass
+		
+	def parse():
+		pass
