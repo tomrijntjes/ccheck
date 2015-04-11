@@ -1,8 +1,14 @@
-#argparse: naam email contract template
 # -*- coding: utf-8 -*-
 
 from contractchecker import ContractChecker
 import sys
+import logging
+
+logging.basicConfig(level=logging.INFO,
+                    format='%(asctime)s %(levelname)-8s %(message)s',
+                    datefmt='%a, %d %b %Y %H:%M:%S',
+                    filename='/temp/check.log',
+                    filemode='w')
 
 def main():
   naam,email,path,template = sys.argv[1:]
@@ -12,4 +18,8 @@ def main():
       c.run()
 
 if __name__ == '__main__':
-  main()
+  try:
+      main()
+  except Exception as e:
+    logger.exception(e)
+    raise
