@@ -34,13 +34,13 @@ class User(db.Model):
         self.set_password(password)
         self.template1 = '''
         <p>Beste __KLANT__,</p>
-        <p>u heeft in het verleden een contract geupload bij onze contractservice. Door een verandering in de wet in de vorm van __VERANDERING WET__&nbsp;heeft dat contract __NAAM CONTRACT__&nbsp;uw aandacht nodig: __AANDACHTSPUNT__. Als u daarvoor onze hulp kunt gebruiken horen we dat graag.</p>
+        <p>u heeft in het verleden een contract geupload bij onze contractservice. Door __VERANDERING WET__&nbsp;heeft dat contract __NAAM CONTRACT__&nbsp;uw aandacht nodig: __AANDACHTSPUNT__. Als u daarvoor onze hulp kunt gebruiken horen we dat graag.</p>
         <p>Met hartelijke groet,</p>
         <p>__UW NAAM__</p>
         '''
         self.template2 = '''
         <p>Beste __KLANT__,</p>
-        <p>u heeft in het verleden een contract geupload bij onze contractservice. Door een verandering in de wet in de vorm van __VERANDERING WET__&nbsp;heeft dat contract __NAAM CONTRACT__&nbsp;uw aandacht nodig: __AANDACHTSPUNT__. Als u daarvoor onze hulp kunt gebruiken horen we dat graag.</p>
+        <p>u heeft in het verleden een contract geupload bij onze contractservice. Door __VERANDERING WET__&nbsp;heeft dat contract __NAAM CONTRACT__&nbsp;uw aandacht nodig: __AANDACHTSPUNT__. Als u daarvoor onze hulp kunt gebruiken horen we dat graag.</p>
         <p>Met hartelijke groet,</p>
         <p>__UW NAAM__</p>
         '''

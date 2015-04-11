@@ -37,6 +37,8 @@ def instellingen():
         template2 = request.form.getlist('edit2')[0]
         template3 = request.form.getlist('edit3')[0]
         current_user.template1 = template1
+        current_user.template2 = template2
+        current_user.template3 = template3
         db.session.add(current_user)
         db.session.commit()
 
