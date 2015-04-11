@@ -11,7 +11,8 @@ PORT = 80
 
 SECRET_KEY = '\x15\xb6$R\xe4\xf2\x02l\x86\xd35\x7f\xb2\xad\xc9Mnla8\x9f\x0bnS'
 
-UPLOAD_lAWYER_FOLDER = os.path.join(base_path, 'uploads_lawyer')
+TEMPORARY_FOLDER = os.path.join(base_path, 'tmp')
+UPLOAD_LAWYER_FOLDER = os.path.join(base_path, 'uploads_lawyer')
 UPLOAD_COMPANY_FOLDER = os.path.join(base_path, 'uploads_company')
 
 ALLOWED_EXTENSIONS = set(['txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif'])

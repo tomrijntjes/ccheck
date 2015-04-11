@@ -1,16 +1,44 @@
 {% extends "base.html" %}
 
 {% block content %}
-
-  {% if current_user.is_admin() %}
-  <select class="form-control">
-    {% for customer in customers %}
-    <option>{{ customer }}</option>
-    {% endfor %}
-  </select>
-  {% endif %}
+  {% if customers or not current_user.is_admin() %}
     <form action="{{ url_for('contracten_lawyer') }}" method="post" enctype="multipart/form-data">
-      <input type="file" multiple="" name="documents" class="span3" /><br />
-      <input type="submit" value="Upload"  class="span2">
+      {% if current_user.is_admin() %}
+        <div class="input-group">
+          <select name="customer" class="form-control">
+            {% for customer in customers %}
+              <option>{{ customer }}</option>
+            {% endfor %}
+          </select>
+        </div>
+        <br>
+      {% endif %}
+      <div class="input-group">
+        <span class="btn btn-default btn-file">
+          Browse.. <input type="file" multiple="" name="documents" required>
+        </span>
+      </div>
+      </br>
+      <div class="input-group">
+        <input type="submit" value="Upload"  class="btn btn-primary">
+      </div>
     </form>
+
+  {% else %}
+    {% if current_user.is_admin() %}
+      Op dit moment zijn er geen klanten die dit product afnemen, ga naar uw <a href="/instellingen">instellingen</a>.
+    {% endif %}
+  {% endif %}
+
+  {% for customer, customer_files in files.items() %}
+    <br>
+    {% if customer_files %}
+      <h2>{{ customer }}</h2>
+      <ul class="list-group">
+        {% for file in customer_files %}
+          <li class="list-group-item">{{ file }}</li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+  {% endfor %}
 {% endblock %}

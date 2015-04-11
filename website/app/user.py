@@ -3,7 +3,7 @@
 
 from flask import url_for, redirect, flash, session, request, render_template
 from flask.ext.login import login_required, login_user, logout_user, current_user
-from .forms import SignupForm, LoginForm, Email1, Email2, Email3
+from .forms import SignupForm, LoginForm
 from app import app, db, login_manager
 
 from .functions import flash_errors, admin_required
@@ -14,10 +14,10 @@ from .models import User
 def load_user(id):
     return User.query.filter_by(id=id).first()
 
-@app.route('/settings', methods=['GET', 'POST'])
+@app.route('/instellingen', methods=['GET', 'POST'])
 @admin_required
 @login_required
-def settings():
+def instellingen():
     all_q = User.query.all()
     all = []
     for one in all_q:
@@ -40,7 +40,7 @@ def settings():
         db.session.add(current_user)
         db.session.commit()
 
-    return render_template('settings.html', template1=template1, template2=template2, template3=template3, customers=customers, pot_customers=pot_customers)
+    return render_template('instellingen.html', template1=template1, template2=template2, template3=template3, customers=customers, pot_customers=pot_customers)
 
 @app.route('/add_customer/<name>')
 @admin_required
@@ -48,21 +48,17 @@ def settings():
 def add_customer(name):
     name = name.title()
     user = User.query.filter_by(name=name).first()
-    print(user)
     if user is None:
         flash('User %s not found.' % name, )
-        return redirect(url_for('settings'))
+        return redirect(url_for('instellingen'))
     if user == current_user:
-        flash('You can\'t follow yourself!', 'info')
-        return redirect(url_for('settings'))
+        return redirect(url_for('instellingen'))
     u = current_user.follow(user)
     if u is None:
-        flash('Cannot follow ' + name + '.', 'info')
-        return redirect(url_for('settings'))
+        return redirect(url_for('instellingen'))
     db.session.add(u)
     db.session.commit()
-    flash('You are now following ' + name + '!', 'success')
-    return redirect(url_for('settings'))
+    return redirect(url_for('instellingen'))
 
 @app.route('/remove_customer/<name>')
 @admin_required
@@ -71,19 +67,15 @@ def unfollow(name):
     name = name.title()
     user = User.query.filter_by(name=name).first()
     if user is None:
-        flash('User %s not found.' % name, 'info')
-        return redirect(url_for('settings'))
+        return redirect(url_for('instellingen'))
     if user == current_user:
-        flash('You can\'t unfollow yourself!','info')
-        return redirect(url_for('settings'))
+        return redirect(url_for('instellingen'))
     u = current_user.unfollow(user)
     if u is None:
-        flash('Cannot unfollow ' + name + '.','info')
-        return redirect(url_for('settings'))
+        return redirect(url_for('instellingen'))
     db.session.add(u)
     db.session.commit()
-    flash('You have stopped following ' + name + '.', 'success')
-    return redirect(url_for('settings'))
+    return redirect(url_for('instellingen'))
 
 @app.route('/signup', methods=['GET', 'POST'])
 def signup():
