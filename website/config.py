@@ -15,7 +15,7 @@ TEMPORARY_FOLDER = os.path.join(base_path, 'tmp')
 UPLOAD_LAWYER_FOLDER = os.path.join(base_path, 'uploads_lawyer')
 UPLOAD_COMPANY_FOLDER = os.path.join(base_path, 'uploads_company')
 
-ALLOWED_EXTENSIONS = set(['txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif'])
+ALLOWED_EXTENSIONS = set(['txt', 'pdf'])
 
 DATABASE_PATH = os.path.join(base_path, 'data')
 if not os.path.exists(DATABASE_PATH):

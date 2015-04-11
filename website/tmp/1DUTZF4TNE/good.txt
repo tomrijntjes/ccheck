@@ -1,0 +1,6 @@
+
+        <p>Beste __KLANT__,</p>
+        <p>we hebben uw contract __NAAM CONTRACT__ geregistreerd en gecontroleerd. Alles is in orde! Wij zorgen ervoor dat als uw contract een update nodig heeft, u meteen een bericht ontvangt. Dat scheelt eventuele nare verrassingen.</p>
+        <p>Met hartelijke groet,</p>
+        <p>__UW NAAM__</p>
+        

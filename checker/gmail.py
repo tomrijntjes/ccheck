@@ -1,6 +1,5 @@
 #!/usr/bin/env python
 
-
 import smtplib
 
 class Gmail(object):
@@ -9,7 +8,7 @@ class Gmail(object):
         self.password = password
         self.server = 'smtp.gmail.com'
         self.port = 587
-        session = smtplib.SMTP(self.server, self.port)        
+        session = smtplib.SMTP(self.server, self.port)
         session.ehlo()
         session.starttls()
         session.ehlo

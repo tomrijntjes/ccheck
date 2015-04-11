@@ -27,7 +27,7 @@ def contracten_company():
             os.makedirs(directory)
         for file in uploaded_files:
             # Check if the file is one of the allowed types/extensions
-            if file and allowed_file(file.filename):
+            if file:
                 # Make the filename safe, remove unsupported chars
                 filename = secure_filename(file.filename)
                 # Move the file form the temporal folder to the upload
@@ -46,7 +46,7 @@ def contracten_company():
         bad = os.path.join(folder, 'bad.txt')
         open(good,'w').write(admin.template3)
         open(bad,'w').write(admin.template2)
-        command = ['python', '/home/jens/ccheck/checker/check.py', name, email, os.path.join(app.config['UPLOAD_COMPANY_FOLDER'], name, r_string, filenames[0]), good, bad]
+        command = ['python', '/home/jens/ccheck/checker/check.py', name, User.query.filter_by(email=app.config['ADMINS'][0]).first().name, email, os.path.join(app.config['UPLOAD_COMPANY_FOLDER'], name, r_string, filenames[0]), good, bad]
         print(command)
         subprocess.Popen(command, stdout=subprocess.PIPE,
                                     stderr=subprocess.STDOUT)
