@@ -8,6 +8,7 @@
   <meta name="SKYPE_TOOLBAR" content="SKYPE_TOOLBAR_PARSER_COMPATIBLE">
   <link href="http://beksadvocaten.nl/wp-content/themes/beks_advocaten/library/css/bootstrap.min.css" rel="stylesheet">
   <link rel="shortcut icon" type="image/x-icon" href="http://beksadvocaten.nl/wp-content/themes/beks_advocaten/library/images/favicon.ico">
+  <link rel="stylesheet" href="/static/css/app.css">
   <link rel="stylesheet" href="http://beksadvocaten.nl/wp-content/themes/beks_advocaten/library/css/normalize.css">
   <link rel="stylesheet" href="http://beksadvocaten.nl/wp-content/themes/beks_advocaten/library/css/main.css">
   <script src="/static/js/modernizr-2.6.2.min.js"></script>
@@ -27,18 +28,25 @@
             <div class="menu-mainmenu-container">
               <ul id="menu-mainmenu" class="nav navbar-nav"><li id="menu-item-6" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-6"><a href="/">Home</a></li>
                 <li id="menu-item-7" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7"><a href="/test">EXPERTISE</a></li>
-                <li id="menu-item-7" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7"><a href="/contracten_company">CONTRACTEN</a></li>
+                {% if current_user.is_authenticated() %}
+                  <li id="menu-item-30" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-30"><a href="/contracten_lawyer">CONTRACTENCHECK</a></li>
+                {% else %}
+                  <li id="menu-item-7" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7"><a href="/contracten_company">CONTRACTEN</a></li>
+                {% endif %}
                 <li id="menu-item-10" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-10"><a href="/test">ONZE DIENSTEN</a></li>
                 <li id="menu-item-78" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-78"><a href="/test">BIBLIOTHEEK</a></li>
                 <li id="menu-item-79" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-79"><a href="/test">VRAAG &amp; ANTWOORD</a></li>
                 <li id="menu-item-27" class="blog menu-item menu-item-type-post_type menu-item-object-page menu-item-27"><a href="/test">BLOG</a></li>
                 <li id="menu-item-341" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-341"><a href="/test">Zoeken</a></li>
                 <li id="menu-item-30" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-30"><a href="/test">CONTACT</a></li>
-                {% if current_user.is_authenticated() %}
-                  <li id="menu-item-30" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-30"><a href="/contracten_lawyer">CONTRACTENCHECK</a></li>
-                {% endif %}
                 {% if current_user.is_admin() %}
-                  <li id="menu-item-30" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-30"><a href="/settings">SETTINGS</a></li>
+                  <li id="menu-item-30" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-30"><a href="/instellingen">INSTELLINGEN  </a></li>
+                {% endif %}
+                {% if current_user.is_authenticated() %}
+                  <li id="menu-item-30" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-30"><a href="/logout">LOGOUT</a></li>
+                {% else %}
+                  <li id="menu-item-7" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7"><a href="/signup">SIGNUP</a></li>
+                  <li id="menu-item-7" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7"><a href="/login">LOGIN</a></li>
                 {% endif %}
               </ul>
             </div>

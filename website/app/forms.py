@@ -42,27 +42,3 @@ class LoginForm(Form):
     else:
       flash("Invalid e-mail or password", "warning")
       return False
-
-class Email1(Form):
-    template1 = StringField('Template1', validators=[DataRequired()])
-    template2 = StringField('Template2', validators=[DataRequired()])
-    template3 = StringField('Template3', validators=[DataRequired()])
-    template4 = StringField('Template4', validators=[DataRequired()])
-    template5 = StringField('Template5', validators=[DataRequired()])
-    submit = SubmitField("Save changes")
-
-class Email2(Form):
-    template1 = StringField('Template1', validators=[DataRequired()])
-    template2 = StringField('Template2', validators=[DataRequired()])
-    template3 = StringField('Template3', validators=[DataRequired()])
-    template4 = StringField('Template4', validators=[DataRequired()])
-    template5 = StringField('Template5', validators=[DataRequired()])
-    submit = SubmitField("Save changes")
-
-class Email3(Form):
-    template1 = StringField('Template1', validators=[DataRequired()])
-    template2 = StringField('Template2', validators=[DataRequired()])
-    template3 = StringField('Template3', validators=[DataRequired()])
-    template4 = StringField('Template4', validators=[DataRequired()])
-    template5 = StringField('Template5', validators=[DataRequired()])
-    submit = SubmitField("Save changes")

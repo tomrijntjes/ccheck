@@ -1,24 +1,25 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <form action="{{ url_for('contracten_company') }}" method="post" enctype="multipart/form-data">
-      <div class="row">
-        <div class="form-group col-lg-5">
-          <label for="inputName">Naam</label>
-          <input type="text" multiple="" name="name" class="span3" id="inputName"/><br/>
-        </div>
+    Op deze pagina kunt u ...
+    <br>
+    <form class="bs-example bs-example-form" action="{{ url_for('contracten_company') }}" method="post" enctype="multipart/form-data">
+      <div class="input-group">
+        <input class="form-control" type="text" multiple="" name="name" class="span3" id="inputName" placeholder="Naam" required/><br/>
       </div>
-      <div class="row">
-        <div class="form-group col-lg-5">
-          <label for="inputEmail">Email</label>
-          <input type="text" multiple="" name="email" class="span3" id="inputEmail"/><br/>
-        </div>
+      <br>
+      <div class="input-group">
+          <input class="form-control" type="text" multiple="" name="email" class="span3" id="inputEmail" placeholder="Email" required/><br/>
       </div>
-      <div class="row">
-        <div class="form-group col-lg-5">
-          <input type="file" name="documents" class="span3" /><br/>
-        </div>
+      <br>
+      <div class="input-group">
+        <span class="btn btn-default btn-file">
+          Browse.. <input type="file" name="documents" required>
+        </span>
       </div>
-      <input type="submit" value="Upload"  class="span2">
+      <br>
+      <div class="input-group">
+        <input type="submit" value="Check"  class="btn btn-primary">
+      </div>
     </form>
 {% endblock %}

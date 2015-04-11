@@ -1,0 +1,6 @@
+
+        <p>Beste **KLANT**,</p>
+        <p>u heeft in het verleden een contract geupload bij onze contractservice. Door een verandering in de wet in de vorm van **VERANDERING WET**&nbsp;heeft dat contract **NAAM CONTRACT**&nbsp;uw aandacht nodig: **AANDACHTSPUNT**. Als u daarvoor onze hulp kunt gebruiken horen we dat graag.</p>
+        <p>Met hartelijke groet,</p>
+        <p>**UW NAAM**</p>
+        

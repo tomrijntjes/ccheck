@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+{% block content %}
+<script src="/static/ckeditor/ckeditor.js"></script>
+
+<h2>Klantenmanagement</h2>
+{% if customers or pot_customers %}
+  {% if customers %}
+    De volgende klanten ontvangen bij wetswijzingen of publicatie van jurisprudentie relevant voor de contracten van de klant automatisch een e-mail.
+    <br>
+      <div class="list-group">
+        {% for customer in customers %}
+          <li class="list-group-item"><a href="/remove_customer/{{customer}}"><span class="glyphicon glyphicon-remove"></span></a> {{ customer }}</li>
+         {% endfor %}
+      </div>
+  {% endif %}
+{% else %}
+Er zijn op dit moment nog geen klanten in uw bestand. Laat klanten een account aanmaken, waarna u de verschillende modules kan aanzetten. <br><br><br>
+{% endif %}
+
+  {% if pot_customers %}
+    De volgende klanten ontvangen bij wetswijzingen of publicatie van jurisprudentie relevant voor de contracten van de klant nog <b>niet</b> automatisch een e-mail.
+      <div class="list-group">
+        {% for customer in pot_customers %}
+          <li class="list-group-item"><a href="/add_customer/{{customer}}"><span class="glyphicon glyphicon-plus"></span></a> {{ customer }}</li>
+         {% endfor %}
+      </div>
+  {% endif %}
+
+<h2>Templates</h2><br>
+  <form method="post">
+    Template for change in law
+     <textarea name="edit1" id="editor1" rows="10" cols="80">
+         {{ template1 }}
+     </textarea>
+     <br>
+     Template for weird things
+     <textarea name="edit2" id="editor2" rows="10" cols="80">
+         {{ template2 }}
+     </textarea>
+    <br>
+    Template for no weird things
+     <textarea name="edit3" id="editor3" rows="10" cols="80">
+         {{ template3 }}
+     </textarea>
+     <br>
+     <input type="submit" value="Bewaar"  class="btn btn-primary">
+     <script>
+         // Replace the <textarea id="editor1"> with a CKEditor
+         // instance, using default configuration.
+         CKEDITOR.replace( 'edit1' );
+         CKEDITOR.replace( 'edit2' );
+         CKEDITOR.replace( 'edit3' );
+     </script>
+ </form>
+
+{% endblock %}

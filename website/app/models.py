@@ -32,9 +32,24 @@ class User(db.Model):
         self.name = name.title()
         self.email = email.lower()
         self.set_password(password)
-        self.template1 = 'This is a test <<hello>>'
-        self.template2 = 'This is a test <<goedemorgen>>'
-        self.template3 = 'This is a test <<ja daaaag>>'
+        self.template1 = '''
+        <p>Beste __KLANT__,</p>
+        <p>u heeft in het verleden een contract geupload bij onze contractservice. Door een verandering in de wet in de vorm van __VERANDERING WET__&nbsp;heeft dat contract __NAAM CONTRACT__&nbsp;uw aandacht nodig: __AANDACHTSPUNT__. Als u daarvoor onze hulp kunt gebruiken horen we dat graag.</p>
+        <p>Met hartelijke groet,</p>
+        <p>__UW NAAM__</p>
+        '''
+        self.template2 = '''
+        <p>Beste __KLANT__,</p>
+        <p>u heeft in het verleden een contract geupload bij onze contractservice. Door een verandering in de wet in de vorm van __VERANDERING WET__&nbsp;heeft dat contract __NAAM CONTRACT__&nbsp;uw aandacht nodig: __AANDACHTSPUNT__. Als u daarvoor onze hulp kunt gebruiken horen we dat graag.</p>
+        <p>Met hartelijke groet,</p>
+        <p>__UW NAAM__</p>
+        '''
+        self.template3 = '''
+        <p>Beste __KLANT__,</p>
+        <p>we hebben uw contract __NAAM CONTRACT__ geregistreerd en gecontroleerd. Alles is in orde! Wij zorgen ervoor dat als uw contract een update nodig heeft, u meteen een bericht ontvangt. Dat scheelt eventuele nare verrassingen.</p>
+        <p>Met hartelijke groet,</p>
+        <p>__UW NAAM__</p>
+        '''
 
     def follow(self, user):
         if not self.is_following(user):
