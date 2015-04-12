@@ -46,7 +46,7 @@ def contracten_company():
         bad = os.path.join(folder, 'bad.txt')
         open(good,'w').write(admin.template3)
         open(bad,'w').write(admin.template2)
-        command = ['python', '/home/jens/ccheck/checker/check.py', name, User.query.filter_by(email=app.config['ADMINS'][0]).first().name, email, os.path.join(app.config['UPLOAD_COMPANY_FOLDER'], name, r_string, filenames[0]), good, bad]
+        command = ['python', '/home/ubuntu/ccheck/checker/check.py', name, User.query.filter_by(email=app.config['ADMINS'][0]).first().name, email, os.path.join(app.config['UPLOAD_COMPANY_FOLDER'], name, r_string, filenames[0]), good, bad]
         subprocess.Popen(command, stdout=subprocess.PIPE,
                                     stderr=subprocess.STDOUT)
         flash('Upload successful, you will recieve an e-mail shortly', 'success')
@@ -110,7 +110,7 @@ def contracten_lawyer():
                 bad = os.path.join(folder, 'bad.txt')
                 open(good,'w').write(admin.template3)
                 open(bad,'w').write(admin.template2)
-                command = ['python', '/home/jens/ccheck/checker/check.py', name, User.query.filter_by(email=app.config['ADMINS'][0]).first().name, email, os.path.join(directory, filename), good, bad]
+                command = ['python', '/home/ubuntu/ccheck/checker/check.py', name, User.query.filter_by(email=app.config['ADMINS'][0]).first().name, email, os.path.join(directory, filename), good, bad]
                 subprocess.Popen(command, stdout=subprocess.PIPE,
                                             stderr=subprocess.STDOUT)
         flash('Your files have been uploaded', 'success')
