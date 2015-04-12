@@ -3,24 +3,31 @@
 {% block content %}
   {% if customers or not current_user.is_admin() %}
     <form action="{{ url_for('contracten_lawyer') }}" method="post" enctype="multipart/form-data">
+
       {% if current_user.is_admin() %}
-        <div class="input-group">
-          <select name="customer" class="form-control">
-            {% for customer in customers %}
-              <option>{{ customer }}</option>
-            {% endfor %}
-          </select>
-        </div>
-        <br>
+        <p>Upload hier bestanden voor uw klanten.</p><br>
+          <div class="input-group">
+            <select name="customer" class="form-control">
+              {% for customer in customers %}
+                <option>{{ customer }}</option>
+              {% endfor %}
+            </select>
+          </div>
+          <br>
+      {% else %}
+        <p>U bent klant bij Beks Advocaten, al uw contracten worden automatisch gecontroleerd of deze nu door u of door uw advocaat aan worden geleverd.
+          Hieronder kunt u uw (geanonimiseerde) contract en ons systeem gaat na of er onzorgvuldigheden in staan die misschien voor nare verrassingen kunnen zorgen.
+          Als de wetgeving verandert die voor u van toepassing is, controleren we uw contract opnieuw en krijgt u automatisch een waarschuwing.</p><br>
       {% endif %}
       <div class="input-group">
+        <p>Upload {% if current_user.is_admin() %}de{% else %}uw{% endif %} contract(en). Ondersteunde formaten zijn op dit moment alleen .txt.</p><br>
         <span class="btn btn-default btn-file">
           Browse.. <input type="file" multiple="" name="documents" required>
         </span>
       </div>
       </br>
       <div class="input-group">
-        <input type="submit" value="Upload"  class="btn btn-primary">
+        <input type="submit" value="Check nu"  class="btn btn-primary">
       </div>
     </form>
 
@@ -29,11 +36,15 @@
       Op dit moment zijn er geen klanten die dit product afnemen, ga naar uw <a href="/instellingen">instellingen</a>.
     {% endif %}
   {% endif %}
-
+  <br><h2>Bestanden</h2>
   {% for customer, customer_files in files.items() %}
     <br>
     {% if customer_files %}
-      <h2>{{ customer }}</h2>
+      {% if current_user.is_admin() %}
+        <h2>{{ customer }}</h2>
+      {% else %}
+        <h2>Uw bestanden</h2>
+      {% endif %}
       <ul class="list-group">
         {% for file in customer_files %}
           <li class="list-group-item">{{ file }}</li>

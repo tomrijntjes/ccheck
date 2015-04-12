@@ -27,19 +27,28 @@ Er zijn op dit moment nog geen klanten in uw bestand. Laat klanten een account a
       </div>
   {% endif %}
 
-<h2>Templates</h2><br>
+<h2>E-mail</h2><br>
   <form method="post">
-    <p>Template for change in law</p>
+    <p>Wilt u uw klanten automatisch op de hoogte brengen indien er relevante wetswijzigingen of jurispundentie vrijkomt?</p>
+    <div class="radio">
+      <label><input type="radio" name="auto">Ja</label>
+    </div>
+    <div class="radio">
+      <label><input type="radio" name="auto">Nee</label>
+    </div>
+    <br>
+
+    <p>U kunt dit template veranderen om de e-mail die uw klant ontvangt wanneer een wetswijziging relevant is voor de contracten van uw klant the personaliseren</p>
      <textarea name="edit1" id="editor1" rows="10" cols="80">
          {{ template1 }}
      </textarea>
      <br>
-     Template for weird things
+     <p>U kunt dit template veranderen om de e-mail die uw klant ontvangt wanneer een potentiele klant gebruik maakt van de contractenservice een mogelijke verandering in het contract nodig is.</p>
      <textarea name="edit2" id="editor2" rows="10" cols="80">
          {{ template2 }}
      </textarea>
     <br>
-    Template for no weird things
+    <p>U kunt dit template veranderen om de e-mail die uw klant ontvangt wanneer een potentiele klant gebruik maakt van de contractenservice en er geen verandering nodig is in het contract.</p>
      <textarea name="edit3" id="editor3" rows="10" cols="80">
          {{ template3 }}
      </textarea>
@@ -53,5 +62,4 @@ Er zijn op dit moment nog geen klanten in uw bestand. Laat klanten een account a
          CKEDITOR.replace( 'edit3' );
      </script>
  </form>
-
 {% endblock %}

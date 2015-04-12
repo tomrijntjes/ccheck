@@ -15,12 +15,13 @@ class User(db.Model):
 
     __tablename__ = 'user'
     id = db.Column(db.Integer, primary_key = True)
-    name = db.Column(db.String(100))
+    name = db.Column(db.String(100), unique=True)
     email = db.Column(db.String(120), unique=True)
     pwdhash = db.Column(db.String(54))
     template1 = db.Column(db.String(300))
     template2 = db.Column(db.String(300))
     template3 = db.Column(db.String(300))
+    auto = db.Column(db.String(3))
     followed = db.relationship('User',
                                secondary=followers,
                                primaryjoin=(followers.c.follower_id == id),
@@ -32,15 +33,16 @@ class User(db.Model):
         self.name = name.title()
         self.email = email.lower()
         self.set_password(password)
+        self.auto = "on"
         self.template1 = '''
         <p>Beste __KLANT__,</p>
-        <p>u heeft in het verleden een contract geupload bij onze contractservice. Door __VERANDERING WET__&nbsp;heeft dat contract __NAAM CONTRACT__&nbsp;uw aandacht nodig: __AANDACHTSPUNT__. Als u daarvoor onze hulp kunt gebruiken horen we dat graag.</p>
+        <p>u heeft een contract geupload bij onze contractservice. Door __VERANDERING WET__&nbsp;heeft dat contract __NAAM CONTRACT__&nbsp;uw aandacht nodig: __AANDACHTSPUNT__. Als u daarvoor onze hulp kunt gebruiken horen we dat graag.</p>
         <p>Met hartelijke groet,</p>
         <p>__UW NAAM__</p>
         '''
         self.template2 = '''
         <p>Beste __KLANT__,</p>
-        <p>u heeft in het verleden een contract geupload bij onze contractservice. Door __VERANDERING WET__&nbsp;heeft dat contract __NAAM CONTRACT__&nbsp;uw aandacht nodig: __AANDACHTSPUNT__. Als u daarvoor onze hulp kunt gebruiken horen we dat graag.</p>
+        <p>u heeft een contract geupload bij onze contractservice. Door __VERANDERING WET__&nbsp;heeft dat contract __NAAM CONTRACT__&nbsp;uw aandacht nodig: __AANDACHTSPUNT__. Als u daarvoor onze hulp kunt gebruiken horen we dat graag.</p>
         <p>Met hartelijke groet,</p>
         <p>__UW NAAM__</p>
         '''

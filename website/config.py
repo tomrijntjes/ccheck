@@ -23,4 +23,4 @@ if not os.path.exists(DATABASE_PATH):
 SQLALCHEMY_DATABASE_URI = 'sqlite:///{0}/app.db'.format(DATABASE_PATH)
 SQLALCHEMY_MIGRATE_REPO = '{0}/db_repository/'.format(DATABASE_PATH)
 
-ADMINS = ['jensdebruijn@gmail.com']
+ADMINS = ['r.beks@beksadvocaten.nl']

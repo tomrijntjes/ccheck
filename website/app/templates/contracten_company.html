@@ -1,25 +1,30 @@
 {% extends "base.html" %}
 
 {% block content %}
-    Op deze pagina kunt u ...
+  <p>Maak gratis gebruik van Beks Advocaten contractservice.
+    Upload uw (geanonimiseerde) contract en ons systeem gaat na of er onzorgvuldigheden in staan die misschien voor nare verrassingen kunnen zorgen.
+    Als de wetgeving verandert die voor u van toepassing is, controleren we uw contract opnieuw en krijgt u automatisch een waarschuwing. Als u
+    vaste klant bij ons wordt, kunnen we een grote database bijhouden en al uw contracten automatisch controleren.</p>
+  <br>
+  <form class="bs-example bs-example-form" action="{{ url_for('contracten_company') }}" method="post" enctype="multipart/form-data">
+    <p>Voer eerst uw gegevens in zodat we contact op kunnen nemen.</p><br>
+    <div class="input-group">
+      <input class="form-control" type="text" multiple="" name="name" class="span3" id="inputName" placeholder="Naam" required/><br/>
+    </div>
     <br>
-    <form class="bs-example bs-example-form" action="{{ url_for('contracten_company') }}" method="post" enctype="multipart/form-data">
-      <div class="input-group">
-        <input class="form-control" type="text" multiple="" name="name" class="span3" id="inputName" placeholder="Naam" required/><br/>
-      </div>
-      <br>
-      <div class="input-group">
-          <input class="form-control" type="text" multiple="" name="email" class="span3" id="inputEmail" placeholder="Email" required/><br/>
-      </div>
-      <br>
-      <div class="input-group">
-        <span class="btn btn-default btn-file">
-          Browse.. <input type="file" name="documents" required>
-        </span>
-      </div>
-      <br>
-      <div class="input-group">
-        <input type="submit" value="Check"  class="btn btn-primary">
-      </div>
-    </form>
+    <div class="input-group">
+        <input class="form-control" type="text" multiple="" name="email" class="span3" id="inputEmail" placeholder="Email" required/><br/>
+    </div>
+    <br>
+    <div class="input-group">
+      <p>Upload uw contract. Ondersteunde formaten zijn op dit moment alleen .txt.</p><br>
+      <span class="btn btn-default btn-file">
+        Browse.. <input type="file" name="documents" required>
+      </span>
+    </div>
+    <br>
+    <div class="input-group">
+      <input type="submit" value="Check nu"  class="btn btn-primary">
+    </div>
+  </form>
 {% endblock %}

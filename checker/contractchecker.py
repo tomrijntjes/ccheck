@@ -47,7 +47,10 @@ class ContractChecker:
 			template = re.sub("__NAAM CONTRACT__","Arbeidsovereenkomt #1029",template)
 			template = re.sub("__AANDACHTSPUNT__","de vastgelegde proeftijd is mogelijk te lang",template)
 			return re.sub("__UW NAAM__",self.name_lawyer,template)
-		return self.template_success
+		template = self.template_success
+		template = re.sub("__KLANT__",self.name_customer,template)
+		template = re.sub("__NAAM CONTRACT__","Arbeidsovereenkomt #2098",template)
+		return re.sub("__UW NAAM__",self.name_lawyer,template)
 
 	def concurrentiebeding(self,contract):
 		fd = nltk.FreqDist(nltk.word_tokenize(contract))
@@ -57,7 +60,7 @@ class ContractChecker:
 
 	def proeftijd(self,contract):
 		if "proeftijd" not in contract:
-			return false
+			return False
 		contractduur = re.match("duur van (\w+) maanden", contract, flags=re.IGNORECASE)
 		if "eerste maand van de arbeidsovereenkomst geldt als proeftijd" in contract:
 			proeftijd = 1

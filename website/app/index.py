@@ -8,9 +8,9 @@ from app import app
 def index():
     return render_template('index.html')
 
-@app.route('/test')
+@app.route('/prototype')
 def test():
-    return render_template('test.html')
+    return render_template('prototype.html')
 
 @app.errorhandler(404)
 def not_found_error(error):

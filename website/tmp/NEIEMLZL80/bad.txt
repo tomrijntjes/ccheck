@@ -1,7 +1,0 @@
-<p><img alt="" src="http://beksadvocaten.nl/wp-content/themes/beks_advocaten/library/images/logo.png" style="height:127px; width:165px" />Beste __KLANT__,</p>
-
-<p>u heeft in het verleden een contract geupload bij onze contractservice. Door een verandering in de wet in de vorm van __VERANDERING WET__&nbsp;heeft dat contract __NAAM CONTRACT__&nbsp;uw aandacht nodig: __AANDACHTSPUNT__. Als u daarvoor onze hulp kunt gebruiken horen we dat graag.</p>
-
-<p>Met hartelijke groet,</p>
-
-<p>__UW NAAM__</p>

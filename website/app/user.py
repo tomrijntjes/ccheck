@@ -33,6 +33,8 @@ def instellingen():
     template3 = current_user.template3
 
     if request.method == 'POST':
+        auto = request.form.getlist('auto')[0]
+        current_user.auto = auto
         template1 = request.form.getlist('edit1')[0]
         template2 = request.form.getlist('edit2')[0]
         template3 = request.form.getlist('edit3')[0]
@@ -81,6 +83,9 @@ def unfollow(name):
 
 @app.route('/signup', methods=['GET', 'POST'])
 def signup():
+  if current_user.is_authenticated():
+      flash('You are already logged in', 'info')
+      return redirect(url_for('index'))
   form = SignupForm()
   if request.method == 'POST':
     if form.validate() == False:
@@ -97,6 +102,9 @@ def signup():
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
+    if current_user.is_authenticated():
+        flash('You are already logged in', 'info')
+        return redirect(url_for('index'))
     form = LoginForm()
     if request.method == 'POST':
         if form.validate() == False:
