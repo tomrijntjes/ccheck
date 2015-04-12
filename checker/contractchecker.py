@@ -29,27 +29,27 @@ class ContractChecker:
 		if cb and pt:
 			template = self.template_warning
 			template = re.sub("__KLANT__",self.name_customer,template)
-			template = re.sub("__VERANDERING WET__","de wijziging van Wet Werk en Zekerheid per januari dit jaar.", template)
-			template = re.sub("__NAAM CONTRACT__","Arbeidsovereenkomt #1001",template)
+			template = re.sub("__VERANDERING WET__","de wijziging van Wet Werk en Zekerheid per januari dit jaar", template)
+			template = re.sub("__NAAM CONTRACT__","Arbeidsovereenkomst #1001",template)
 			template = re.sub("__AANDACHTSPUNT__","de proeftijd is mogelijk te lang. Daarnaast heeft het concurrentiebeding uitgebreidere uitleg nodig",template)
 			return re.sub("__UW NAAM__",self.name_lawyer,template)
 		if cb:
 			template = self.template_warning
 			template = re.sub("__KLANT__",self.name_customer,template)
-			template = re.sub("__VERANDERING WET__","de wijziging van Wet Werk en Zekerheid per januari dit jaar.", template)
-			template = re.sub("__NAAM CONTRACT__","Arbeidsovereenkomt #1034",template)
+			template = re.sub("__VERANDERING WET__","de wijziging van Wet Werk en Zekerheid per januari dit jaar", template)
+			template = re.sub("__NAAM CONTRACT__","Arbeidsovereenkomst #1034",template)
 			template = re.sub("__AANDACHTSPUNT__","het concurrentiebeding heeft uitgebreidere uitleg nodig",template)
 			return re.sub("__UW NAAM__",self.name_lawyer,template)
 		if pt:
 			template = self.template_warning
 			template = re.sub("__KLANT__",self.name_customer,template)
-			template = re.sub("__VERANDERING WET__","de wijziging van Wet Werk en Zekerheid per januari dit jaar.", template)
-			template = re.sub("__NAAM CONTRACT__","Arbeidsovereenkomt #1029",template)
+			template = re.sub("__VERANDERING WET__","de wijziging van Wet Werk en Zekerheid per januari dit jaar", template)
+			template = re.sub("__NAAM CONTRACT__","Arbeidsovereenkomst #1029",template)
 			template = re.sub("__AANDACHTSPUNT__","de vastgelegde proeftijd is mogelijk te lang",template)
 			return re.sub("__UW NAAM__",self.name_lawyer,template)
 		template = self.template_success
 		template = re.sub("__KLANT__",self.name_customer,template)
-		template = re.sub("__NAAM CONTRACT__","Arbeidsovereenkomt #2098",template)
+		template = re.sub("__NAAM CONTRACT__","Arbeidsovereenkomst #2098",template)
 		return re.sub("__UW NAAM__",self.name_lawyer,template)
 
 	def concurrentiebeding(self,contract):
